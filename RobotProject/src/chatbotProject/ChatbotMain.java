@@ -11,15 +11,21 @@ public class ChatbotMain {
 	private static Scanner inputSource = new Scanner(System.in);
 
 	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		for (int i = 0; i<keyword.length();i++) {
-			if (s.substring(psn,psn++)!=" ") {
-				psn=psn+1;
+		int pos = s.indexOf(keyword);
+		String S2=s.substring(psn);
+		int pos2=S2.indexOf(" ");
+		String S3=S2.substring(0,pos2);
+		if(S3.length()>s.length()) {
+			if(S3.substring(keyword.length(),keyword.length()+1).equals(".")||S3.substring(keyword.length(),keyword.length()+1).equals("!")||S3.substring(keyword.length(),keyword.length()+1).equals("?")) {
+				return true;
 			}
 			else {
 				return false;
 			}
-			}
-		return true;
+		}
+		else {
+			return true;
+		}
 		}
 
 	public static boolean noNegations(String s, int psn){
