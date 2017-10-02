@@ -1,12 +1,12 @@
 package chatbotProject;
 
-public class ChatBotDavid implements Topic {
+public class ChatbotRemington implements Topic {
 	private String[]keywords;
 	private String goodbyeWord;
 	private String secretWord;
 	private boolean chatting;
 	
-	public ChatBotDavid() {
+	public ChatbotRemington() {
 		String[] temp = {"food","entertainment","internet","videogames"};
 		keywords = temp;
 		goodbyeWord = "bye";
@@ -37,4 +37,3 @@ public class ChatBotDavid implements Topic {
 		}
 	}
 }
-
