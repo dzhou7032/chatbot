@@ -5,12 +5,13 @@ public class ChatbotRemington implements Topic {
 	private String goodbyeWord;
 	private String secretWord;
 	private boolean chatting;
+	private int happiness = 0;
 	
 	public ChatbotRemington() {
-		String[] temp = {"food","entertainment","internet","videogames"};
+		String[] temp = {"clothing","clothes","outerwear"};
 		keywords = temp;
 		goodbyeWord = "bye";
-		secretWord = "pug";
+		secretWord = "sneakers";
 	}
 	
 	public boolean isTriggered(String response) {
@@ -30,9 +31,18 @@ public class ChatbotRemington implements Topic {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");	
+				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");
 			}else {
 				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
+			}
+		}
+	}
+	public void happinessCountet(String response) {
+		while (chatting) {
+			response = ChatbotMain.getInput();
+			if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
+				System.out.println("I'm very happy you said that!");
+				happiness ++;
 			}
 		}
 	}
