@@ -13,24 +13,17 @@ public class ChatbotMain {
 	public static boolean keywordIsIsolated(int psn, String keyword, String s){
 		if (s.substring(psn,psn+keyword.length()).equals(keyword)) {
 			int pos = psn;
-			System.out.println(pos);
 			String S2=s.substring(pos);
-			System.out.println(S2);
 			if(S2.length() == keyword.length()) {
 				return true;
 			}else {
 				int pos2=S2.indexOf(" ");
-				System.out.println(pos2);
 				String S3=S2.substring(0,pos2);
-				System.out.println(S3);
-				System.out.println(S3.substring(keyword.length(),keyword.length()+1));
 				if(S3.length()>keyword.length()) {
 					if(S3.substring(keyword.length(),keyword.length()+1).equals(".")||S3.substring(keyword.length(),keyword.length()+1).equals("!")||S3.substring(keyword.length(),keyword.length()+1).equals("?")) {
-						System.out.println("xd1");
 						return true;
 					}
 					else {
-						System.out.println("xd");
 						return false;
 						
 					}
@@ -47,6 +40,19 @@ public class ChatbotMain {
 	}
 
 	public static boolean noNegations(String s, int psn){
+		if(psn == 0) {
+				return true;
+			}
+		else {
+			if (s.substring(psn-1, psn).equals(" ")) {
+				if (s.substring(psn-4, psn-1).equals("not")) {
+					return false;
+				}
+			if (s.substring(psn-3,psn-1).equals("no")) {
+				return false;
+				}
+			}
+		}
 		return true;
 	}
 	/** this method returns the index of keyword in the searchString  (after startPsm)

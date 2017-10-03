@@ -2,13 +2,18 @@ package chatbotProject;
 
 public class ChatBot {
 	private String userName;
+	private int happiness;
 	private Topic David;
+	private Topic Remington;
+	private Topic Jason;
 	private boolean chatting;
 	
 	public ChatBot() {
 		David = new ChatBotDavid();
+		Remington = new ChatbotRemington();
 		userName = "unknown user";
 		chatting = true;
+		happiness = 1;
 	}
 	public void startTalking() {
 		ChatbotMain.print("Welcome to our chatbot! What is your name?");

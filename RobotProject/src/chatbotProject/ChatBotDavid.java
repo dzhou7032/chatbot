@@ -7,7 +7,7 @@ public class ChatBotDavid implements Topic {
 	private boolean chatting;
 	
 	public ChatBotDavid() {
-		String[] temp = {"food","entertainment","internet","videogames"};
+		String[] temp = {"Let's play a game!","games","internet","videogames"};
 		keywords = temp;
 		goodbyeWord = "bye";
 		secretWord = "pug";
@@ -26,6 +26,11 @@ public class ChatBotDavid implements Topic {
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
+			if (response.equals(keywords[0])) {
+				ChatbotMain.print("Let's play 20 questions!");
+				startPlaying();
+				return;
+			}
 			if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
@@ -35,6 +40,9 @@ public class ChatBotDavid implements Topic {
 				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
 			}
 		}
+	}
+	public void startPlaying() {
+		
 	}
 }
 
