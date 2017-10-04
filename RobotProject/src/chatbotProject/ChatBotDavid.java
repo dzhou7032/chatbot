@@ -7,9 +7,9 @@ public class ChatBotDavid implements Topic {
 	private boolean chatting;
 	
 	public ChatBotDavid() {
-		String[] temp = {"Let's play a game!","games","internet","videogames"};
+		String[] temp = {"fun","games","bored","videogames"};
 		keywords = temp;
-		goodbyeWord = "bye";
+		goodbyeWord = "let's talk about something else";
 		secretWord = "pug";
 	}
 	
@@ -21,21 +21,16 @@ public class ChatBotDavid implements Topic {
 		}
 		return false;
 	}
-	public void startChatting(String response) {
-		ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more!");
+	public void startChatting(String response, int happiness) {
+		ChatbotMain.print("Hey! You know what would be fun? If we played a guessing game!");
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			if (response.equals(keywords[0])) {
-				ChatbotMain.print("Let's play 20 questions!");
-				startPlaying();
-				return;
-			}
 			if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");	
+				ChatbotMain.print("Fine, let's talk about something else");	
 			}else {
 				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
 			}

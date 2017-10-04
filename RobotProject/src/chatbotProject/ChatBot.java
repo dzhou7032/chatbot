@@ -3,6 +3,7 @@ package chatbotProject;
 public class ChatBot {
 	private String userName;
 	private int happiness;
+	private int happinessMeter;
 	private Topic David;
 	private Topic Remington;
 	private Topic Jason;
@@ -23,12 +24,23 @@ public class ChatBot {
 			String response = ChatbotMain.getInput();
 			if (David.isTriggered(response)) {
 				chatting = false;
-				David.startChatting(response);
+				David.startChatting(response, happiness);
 			}
 			else {
 				ChatbotMain.print("I'm sorry. I don't understand.");
 			}
 		}
 	}
-
+	public void increaseHappiness() {
+		happinessMeter++;
+		if (happinessMeter >5) {
+			happiness = 2;
+		}
+	}
+	public void decreaseHappiness() {
+		happinessMeter--;
+		if (happinessMeter < -5) {
+			happiness = 0;
+		}
+	}
 }
