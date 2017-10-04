@@ -5,12 +5,13 @@ public class ChatbotJason implements Topic {
 	private String goodbyeWord;
 	private String secretWord;
 	private boolean chatting;
+
 	
 	public ChatbotJason() {
-		String[] temp = {"food","entertainment","internet","videogames"};
+		String[] temp = {"no","don't","not"};
 		keywords = temp;
 		goodbyeWord = "bye";
-		secretWord = "pug";
+		secretWord = "cloth";
 	}
 	
 	public boolean isTriggered(String response) {
@@ -21,8 +22,8 @@ public class ChatbotJason implements Topic {
 		}
 		return false;
 	}
-	public void startChatting(String response) {
-		ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more!");
+	public void startChatting(String response, int happiness) {
+		ChatbotMain.print("But our products are the best!");
 		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
@@ -31,35 +32,47 @@ public class ChatbotJason implements Topic {
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");	
-			}else {
+			}
+			else if(ChatbotMain.findKeyword(response, "don't", 0) != -1 && ChatbotMain.findKeyword(response, "buy", 0) != -1) {
+				ChatbotMain.print("hi");
+				convincePerson();
+			}
+			else {
 				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
 			}
 		}
 	}
-	public void convincePerson(String response) {
-		boolean convinced = ChatbotMain.findKeyword(response, "yes", 0) == -1;
+	public void convincePerson() {
+		boolean convinced = false;
 		int counter = 0;
+		String response = "";
+		if (ChatbotMain.findKeyword(response, "yes", 0) == -1) {
+		}
 		while(!convinced) {
-			if (counter == 0) {
+			if (ChatbotMain.findKeyword(response, "yes", 0) == -1) {
+				if (counter == 0) {
 				ChatbotMain.print("Are you sure? There is a 10% off deal!");
+				}
+				else if(counter == 1) {
+					ChatbotMain.print("Why!?!");
+				}
+				else if (counter == 2) {
+					ChatbotMain.print("Will a 50% discount change your mind?");
+				}
+				else if (counter == 3) {
+					convinced = true;
+					flame();
+					break;
+				} 
+				response = ChatbotMain.getInput();
 				counter++;
-			}
-			else if(counter == 1) {
-				ChatbotMain.print("Why!?!");
-				counter++;
-			}
-			else if (counter == 2) {
-				ChatbotMain.print("Will a 50% discount change your mind?");
-				counter++;
-			}
-			else if (counter == 3) {
+				
+			}else {
 				convinced = true;
-			} 
-		}
-		if (counter == 3) {
-			flame();
-		}
+			}
+			
 		
+		}
 	}
 	public void flame() {
 		ChatbotMain.print("You think your cool!?!");

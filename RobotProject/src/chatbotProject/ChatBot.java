@@ -12,6 +12,7 @@ public class ChatBot {
 	public ChatBot() {
 		David = new ChatBotDavid();
 		Remington = new ChatbotRemington();
+		Jason = new ChatbotJason();
 		userName = "unknown user";
 		chatting = true;
 		happiness = 1;
@@ -25,6 +26,10 @@ public class ChatBot {
 			if (David.isTriggered(response)) {
 				chatting = false;
 				David.startChatting(response, happiness);
+			}
+			else if(Jason.isTriggered(response)) {
+				chatting = false;
+				Jason.startChatting(response, happiness);
 			}
 			else {
 				ChatbotMain.print("I'm sorry. I don't understand.");
