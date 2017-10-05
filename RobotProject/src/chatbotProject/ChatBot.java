@@ -31,6 +31,10 @@ public class ChatBot {
 				chatting = false;
 				Jason.startChatting(response, happiness);
 			}
+			else if(Remington.isTriggered(response)) {
+				chatting = false;
+				Remington.startChatting(response, happiness);
+			}
 			else {
 				ChatbotMain.print("I'm sorry. I don't understand.");
 			}

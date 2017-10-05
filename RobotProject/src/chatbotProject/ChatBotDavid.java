@@ -21,7 +21,6 @@ public class ChatBotDavid implements Topic {
 		String[] tempor = {"sweater", "shirt", "shorts", "sweatpants"};
 		answers = tempor;
 		}
-	}
 	
 	public boolean isTriggered(String response) {
 		for(int i=0;i<keywords.length;i++) {

@@ -2,14 +2,17 @@ package chatbotProject;
 
 public class ChatbotRemington implements Topic {
 	private String[]keywords;
+	private String []greetingWords;
 	private String goodbyeWord;
 	private String secretWord;
 	private boolean chatting;
-	private int happiness = 0;
+	private boolean pissedOff = false;
 	
 	public ChatbotRemington() {
 		String[] temp = {"clothing","clothes","outerwear"};
+		String[] temp2 = {"hi", "hello"};
 		keywords = temp;
+		greetingWords = temp2;
 		goodbyeWord = "bye";
 		secretWord = "sneakers";
 	}
@@ -22,7 +25,7 @@ public class ChatbotRemington implements Topic {
 		}
 		return false;
 	}
-	public void startChatting(String response) {
+	public void startChatting(String response, int happiness) {
 		ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more!");
 		chatting = true;
 		while(chatting) {
@@ -31,18 +34,28 @@ public class ChatbotRemington implements Topic {
 				chatting = false;
 				ChatbotMain.chatbot.startTalking();
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");
+				ChatbotMain.print("Oh my goodness! I love it when you say that! We are friends now.");
+				happiness++;
 			}else {
 				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
 			}
 		}
 	}
-	public void happinessCountet(String response) {
-		while (chatting) {
+	public void feelingsHurt(String response, int happiness, boolean pissedOff) {
+		while(chatting) {
 			response = ChatbotMain.getInput();
-			if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				System.out.println("I'm very happy you said that!");
-				happiness ++;
+			for(int i=0;i<greetingWords.length;i++) {
+				if (ChatbotMain.findKeyword(response, greetingWords[i],0)>=0){
+					ChatbotMain.print("Awesome! Let's talk!");
+				}
+				else {
+					ChatbotMain.print("Wow... where are your manners??");
+					happiness--;
+					pissedOff = true;
+					if(pissedOff = true) {
+						ChatbotMain.print("I'm not talking to you until you greet me.");
+					}
+				}
 			}
 		}
 	}
