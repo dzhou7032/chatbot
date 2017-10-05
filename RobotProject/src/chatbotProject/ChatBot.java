@@ -52,4 +52,7 @@ public class ChatBot {
 			happiness = 0;
 		}
 	}
+	public int getHappiness() {
+		return happiness;
+	}
 }
