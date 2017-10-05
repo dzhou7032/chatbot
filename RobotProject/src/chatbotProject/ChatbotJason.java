@@ -21,7 +21,7 @@ public class ChatbotJason implements Topic {
 		for(int i=0;i<keywords.length;i++) {
 			if (ChatbotMain.findKeyword(response, keywords[i],0)>=0){
 			return true;	
-			}
+			} //s
 		}
 		return false;
 	}
