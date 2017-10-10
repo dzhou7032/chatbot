@@ -18,10 +18,11 @@ public class ChatBot {
 		happiness = 1;
 	}
 	public void startTalking() {
-		ChatbotMain.print("Welcome to our chatbot! What is your name?");
+		
+		ChatbotMain.print("Hi my name is Salesbot! What is your name?");
 		userName = ChatbotMain.getInput();
 		while(chatting) {
-			ChatbotMain.print("What do you want to talk about?");
+			ChatbotMain.print("Hey " + userName + "! What do you want to talk about?");
 			String response = ChatbotMain.getInput();
 			if (David.isTriggered(response)) {
 				chatting = false;

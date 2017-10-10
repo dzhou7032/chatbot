@@ -67,7 +67,7 @@ public class ChatBotDavid implements Topic {
 			}
 			 if(ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
-				ChatbotMain.chatbot.startTalking();
+				ChatbotMain.print("Okay. See you later!");
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("Fine, let's talk about something else");	
 			}else {
