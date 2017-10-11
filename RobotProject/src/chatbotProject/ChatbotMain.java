@@ -11,29 +11,35 @@ public class ChatbotMain {
 	private static Scanner inputSource = new Scanner(System.in);
 
 	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		if (s.substring(psn,psn+keyword.length()).equals(keyword)) {
-			int pos = psn;
-			String S2=s.substring(pos);
-			if(S2.length() == keyword.length()) {
-				return true;
-			}else {
-				int pos2=S2.indexOf(" ");
-				String S3=S2.substring(0,pos2);
-				if(S3.length()>keyword.length()) {
-					if(S3.substring(keyword.length(),keyword.length()+1).equals(".")||S3.substring(keyword.length(),keyword.length()+1).equals("!")||S3.substring(keyword.length(),keyword.length()+1).equals("?")) {
-						return true;
-					}
-					else {
-						return false;
-						
-					}
-			      
+		try {
+			if (s.substring(psn,psn+keyword.length()).equals(keyword)) {
+				int pos = psn;
+				String S2=s.substring(pos);
+				if(S2.length() == keyword.length()) {
+					return true;
+				}else {
+					int pos2=S2.indexOf(" ");
+					String S3=S2.substring(0,pos2);
+					if(S3.length()>keyword.length()) {
+						if(S3.substring(keyword.length(),keyword.length()+1).equals(".")||S3.substring(keyword.length(),keyword.length()+1).equals("!")||S3.substring(keyword.length(),keyword.length()+1).equals("?")) {
+							return true;
+						}
+						else {
+							return false;
+							
+						}
+				      
+				}
+					return true;
+				}
+				
 			}
-				return true;
+			else {
+				return false;
 			}
-			
 		}
-		else {
+		catch(Exception ex) {
+			//throw;
 			return false;
 		}
 	

@@ -21,22 +21,24 @@ public class ChatBot {
 		
 		ChatbotMain.print("Hi my name is Salesbot! What is your name?");
 		userName = ChatbotMain.getInput();
+		ChatbotMain.print("Hey " + userName + "! What do you want to talk about?");
+		String response;
 		while(chatting) {
-			ChatbotMain.print("Hey " + userName + "! What do you want to talk about?");
-			String response = ChatbotMain.getInput();
-			if (David.isTriggered(response)) {
+			response = ChatbotMain.getInput();
+			if (Remington.isTriggered(response)) {
 				chatting = false;
-				David.startChatting(response, happiness);
+				Remington.startChatting(response, happiness);
 			}
 			else if(Jason.isTriggered(response)) {
 				chatting = false;
 				Jason.startChatting(response, happiness);
 			}
-			else if(Remington.isTriggered(response)) {
+			else if(David.isTriggered(response)) {
 				chatting = false;
-				Remington.startChatting(response, happiness);
+				David.startChatting(response, happiness);
 			}
 			else {
+				chatting = false;
 				ChatbotMain.print("I'm sorry. I don't understand.");
 			}
 		}
