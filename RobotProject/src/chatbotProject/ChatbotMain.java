@@ -23,7 +23,7 @@ public class ChatbotMain {
 					if(S3.length()>keyword.length()) {
 						if(S3.substring(keyword.length(),keyword.length()+1).equals(".")||S3.substring(keyword.length(),keyword.length()+1).equals("!")||S3.substring(keyword.length(),keyword.length()+1).equals("?")) {
 							return true;
-						}
+						} 
 						else {
 							return false;
 							
@@ -46,30 +46,6 @@ public class ChatbotMain {
 	}
 
 	public static boolean noNegations(String s, int psn){
-<<<<<<< HEAD
-		try {
-			if(psn == 0) {
-					return true;
-				}
-			else {
-				if (s.substring(psn-1, psn).equals(" ")) {
-					if (s.substring(psn-4, psn-1).equals("not")) {
-						return false;
-					}
-				if (s.substring(psn-3,psn-1).equals("no")) {
-					return false;
-					}
-				}
-			}
-			return true;			
-		}
-		catch(Exception ex) {
-			//throw;
-			return true;
-		}
-
-	}
-=======
         int sp = -1;
         for(int i = 0; i < psn-1; i++) {
             if(s.substring(i,i+1).compareTo(" ") == 0) {
@@ -84,8 +60,8 @@ public class ChatbotMain {
             return false;
         }
             return true;
-    }
->>>>>>> branch 'master' of https://github.com/dzhou7032/chatbot.git
+	}
+	
 	/** this method returns the index of keyword in the searchString  (after startPsm)
 	 * where keyword is isolated and has noNegations. It returns -1 if the
 	 * keyword is not found
