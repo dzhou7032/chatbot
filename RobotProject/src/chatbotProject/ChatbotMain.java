@@ -46,6 +46,7 @@ public class ChatbotMain {
 	}
 
 	public static boolean noNegations(String s, int psn){
+<<<<<<< HEAD
 		try {
 			if(psn == 0) {
 					return true;
@@ -68,6 +69,23 @@ public class ChatbotMain {
 		}
 
 	}
+=======
+        int sp = -1;
+        for(int i = 0; i < psn-1; i++) {
+            if(s.substring(i,i+1).compareTo(" ") == 0) {
+                sp = i;
+            }
+        }
+        if(sp == -1) {
+            return true;
+        }
+        String word = s.substring(sp,psn-1);
+        if(word.equals("not")|| word.equals("no")){
+            return false;
+        }
+            return true;
+    }
+>>>>>>> branch 'master' of https://github.com/dzhou7032/chatbot.git
 	/** this method returns the index of keyword in the searchString  (after startPsm)
 	 * where keyword is isolated and has noNegations. It returns -1 if the
 	 * keyword is not found
