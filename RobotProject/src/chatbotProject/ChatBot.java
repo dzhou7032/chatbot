@@ -21,7 +21,7 @@ public class ChatBot {
 		
 		ChatbotMain.print("My name is Salesbot. What's your name?");
 		userName = ChatbotMain.getInput();
-		ChatbotMain.print("Hey " + userName + "! What do you want to talk about?");
+		ChatbotMain.print("Hey " + userName + "!");
 		String response;
 		while(chatting) {
 			response = ChatbotMain.getInput();
