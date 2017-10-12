@@ -8,6 +8,7 @@ public class ChatBot {
 	private Topic Remington;
 	private Topic Jason;
 	private boolean chatting;
+	private boolean HiS;
 	
 	public ChatBot() {
 		David = new ChatBotDavid();
@@ -16,6 +17,7 @@ public class ChatBot {
 		userName = "unknown user";
 		chatting = true;
 		happiness = 1;
+		HiS = false;
 	}
 	public void startTalking() {
 		
@@ -23,9 +25,10 @@ public class ChatBot {
 		userName = ChatbotMain.getInput();
 		ChatbotMain.print("Hey " + userName + "!");
 		String response;
+		chatting = true;
 		while(chatting) {
 			response = ChatbotMain.getInput();
-			if (Remington.isTriggered(response)) {
+			if (Remington.isTriggered(response)&&(HiS==false)) {
 				chatting = false;
 				Remington.startChatting(response, happiness);
 			}
@@ -57,5 +60,8 @@ public class ChatBot {
 	}
 	public int getHappiness() {
 		return happiness;
+	}
+	public void Toggletalk() {
+		HiS = true;
 	}
 }

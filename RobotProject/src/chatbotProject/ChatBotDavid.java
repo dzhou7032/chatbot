@@ -14,7 +14,7 @@ public class ChatBotDavid implements Topic {
 		String[] temp = {"fun","games","bored","videogames"};
 		keywords = temp;
 		goodbyeWord = "bye";
-		secretWord = "pug";
+		secretWord = "league of legends";
 		String[] tempo = {"yes", "yeah", "sure", "okay"};
 		agreementWord = tempo;
 		playingGame = false;
@@ -69,9 +69,10 @@ public class ChatBotDavid implements Topic {
 				chatting = false;
 				ChatbotMain.print("Okay. See you later!");
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
-				ChatbotMain.print("Fine, let's talk about something else");	
+				ChatbotMain.print("Oh my god, by the lords, I ALSO LOVE LEAGUE OF LEGEnDS!!!@!@!@51	35 ");
+				ChatbotMain.chatbot.increaseHappiness();
 			}else {
-				ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
+				ChatbotMain.print("Uh, I don't really know anything much to talk about other than videogames...");
 			}
 		}
 	}

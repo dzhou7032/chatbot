@@ -38,13 +38,17 @@ public class ChatbotJason implements Topic {
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");	
 			}
-			else {
+			else if(ChatbotMain.findKeyword(response,"yes", 0) != -1){
+				ChatbotMain.print("That's amazing!");
+				ChatbotMain.chatbot.startTalking();
+			} else {
 					boolean understand = false;
 					for (int i=0; i<= negativeWords.length-1; i++ ) {
 						if(ChatbotMain.findKeyword(response, negativeWords[i], 0) != -1) {
 							convincePerson(preferredItem);
 							understand = true;
-							break;
+							ChatbotMain.chatbot.startTalking();
+							return;
 						}
 					}
 					if (!understand) {
@@ -83,7 +87,7 @@ public class ChatbotJason implements Topic {
 					}
 					else if (counter == 5) {
 						flame();
-						break;
+						return;
 					} 
 					response = ChatbotMain.getInput();
 					counter++;

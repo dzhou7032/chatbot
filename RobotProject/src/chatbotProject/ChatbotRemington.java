@@ -84,7 +84,6 @@ public class ChatbotRemington implements Topic {
 				happiness++;
 				ChatbotMain.print("What?! I like " + color + " " + footwear + " too!");
 				ChatbotMain.print("You know what would be perfect? If you wore " + color + " " + footwear + " on New Years Day!");
-				
 				Calendar myCal = Calendar.getInstance();
 				myCal.set(2018, 0, 1);
 				Date newYearsDay = myCal.getTime();
@@ -96,6 +95,8 @@ public class ChatbotRemington implements Topic {
 				long days = diff / (24 * 60 * 60 * 1000);				
 				
 				ChatbotMain.print("Today is " + todaysDate + ". Only " + days + " days until the new year!");
+				ChatbotMain.chatbot.Toggletalk();
+				ChatbotMain.chatbot.startTalking();
 			} else if (ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				chatting = true;
 				ChatbotMain.print("Oh my goodness! I love money as well! We are friends now. Anything else?");
@@ -105,7 +106,7 @@ public class ChatbotRemington implements Topic {
 				ChatbotMain.print("Okay. See you later!");
 			} else {
 				chatting = true;
-				ChatbotMain.print("Huh. I don't really get you. Tell me something else– such as sneakers.");
+				ChatbotMain.print("Huh. I don't really get you. Tell me something else– for example, say 'sneakers'");
 			}
 		}
 	}
