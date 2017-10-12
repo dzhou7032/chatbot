@@ -74,7 +74,11 @@ public class ChatbotRemington implements Topic {
 				footwear = response;
 				chatting = true;
 				ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more! Tell me, what's your favorite color (ROYGBIV)?");
-			} else if (ChatbotMain.findKeyword(response, "white", 0) >= 0 || ChatbotMain.findKeyword(response, "green", 0) >= 0) {
+			} else if (ChatbotMain.findKeyword(response, "red", 0) >= 0 || ChatbotMain.findKeyword(response, "orange", 0) >= 0 ||
+						ChatbotMain.findKeyword(response, "yellow", 0) >= 0 || ChatbotMain.findKeyword(response, "green", 0) >= 0 ||
+						ChatbotMain.findKeyword(response, "blue", 0) >= 0 || ChatbotMain.findKeyword(response, "purple", 0) >= 0 ||
+						ChatbotMain.findKeyword(response, "indigo", 0) >= 0 || ChatbotMain.findKeyword(response, "violet", 0) >= 0 ||
+						ChatbotMain.findKeyword(response, "white", 0) >= 0 || ChatbotMain.findKeyword(response, "black", 0) >= 0 ){
 				color = response;
 				chatting = false;
 				happiness++;
