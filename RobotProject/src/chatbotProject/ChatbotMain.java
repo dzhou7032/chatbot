@@ -46,21 +46,21 @@ public class ChatbotMain {
 	}
 
 	public static boolean noNegations(String s, int psn){
-		if(psn == 0) {
-				return true;
-			}
-		else {
-			if (s.substring(psn-1, psn).equals(" ")) {
-				if (s.substring(psn-4, psn-1).equals("not")) {
-					return false;
-				}
-			if (s.substring(psn-3,psn-1).equals("no")) {
-				return false;
-				}
-			}
-		}
-		return true;
-	}
+        int sp = -1;
+        for(int i = 0; i < psn-1; i++) {
+            if(s.substring(i,i+1).compareTo(" ") == 0) {
+                sp = i;
+            }
+        }
+        if(sp == -1) {
+            return true;
+        }
+        String word = s.substring(sp,psn-1);
+        if(word.equals("not")|| word.equals("no")){
+            return false;
+        }
+            return true;
+    }
 	/** this method returns the index of keyword in the searchString  (after startPsm)
 	 * where keyword is isolated and has noNegations. It returns -1 if the
 	 * keyword is not found
