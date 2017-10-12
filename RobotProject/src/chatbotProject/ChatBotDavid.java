@@ -13,7 +13,7 @@ public class ChatBotDavid implements Topic {
 	public ChatBotDavid() {
 		String[] temp = {"fun","games","bored","videogames"};
 		keywords = temp;
-		goodbyeWord = "let's talk about something else";
+		goodbyeWord = "bye";
 		secretWord = "pug";
 		String[] tempo = {"yes", "yeah", "sure", "okay"};
 		agreementWord = tempo;
