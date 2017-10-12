@@ -9,7 +9,7 @@ public class ChatbotJason implements Topic {
 
 	
 	public ChatbotJason() {
-		String[] temp = {"no","don't","not"};
+		String[] temp = {"no","don't","not", "dont", "i dont want"};
 		String[] temp2 = {"no" , "don't"};
 		negativeWords = temp2;
 		keywords = temp;
