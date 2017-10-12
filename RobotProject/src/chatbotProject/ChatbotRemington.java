@@ -1,5 +1,9 @@
 package chatbotProject;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class ChatbotRemington implements Topic {
 	private String[]keywords;
 	private String []greetingWords;
@@ -7,14 +11,33 @@ public class ChatbotRemington implements Topic {
 	private String secretWord;
 	private boolean chatting;
 	private boolean pissedOff = false;
+	java.util.Date todaysDate = Calendar.getInstance().getTime();
+	
+	/*Calendar start = Calendar.getInstance();
+	Calendar end = Calendar.getInstance();
+	start.set(2010, 7, 23);
+	end.set(2010, 8, 26);
+	Date startDate = start.getTime();
+	Date endDate = end.getTime();
+	long startTime = startDate.getTime();
+	long endTime = endDate.getTime();
+	long diffTime = endTime - startTime;
+	long diffDays = diffTime / (1000 * 60 * 60 * 24);
+	DateFormat dateFormat = DateFormat.getDateInstance();
+	System.out.println("The difference between "+
+	  dateFormat.format(startDate)+" and "+
+	  dateFormat.format(endDate)+" is "+
+	  diffDays+" days.");*/
+	
+	
 	
 	public ChatbotRemington() {
-		String[] temp = {"sandals", "sneakers"};
-		String[] temp2 = {"hi", "hello"};
+		String[] temp = {"footwear", "sneakers"};
+		String[] temp2 = {"hi", "hello, hey"};
 		keywords = temp;
 		greetingWords = temp2;
 		goodbyeWord = "bye";
-		secretWord = "boxer";
+		secretWord = "money";
 	}
 	
 	public boolean isTriggered(String response) {
@@ -54,28 +77,29 @@ public class ChatbotRemington implements Topic {
 		String color = "";
 		while(chatting) {
 			//response = ChatbotMain.getInput();
-			if (ChatbotMain.findKeyword(response, "sandals", 0) >= 0 || ChatbotMain.findKeyword(response, "sneakers", 0) >= 0) {
+			if (ChatbotMain.findKeyword(response, "footwear", 0) >= 0 || ChatbotMain.findKeyword(response, "sneakers", 0) >= 0) {
 				shoes = response;
 				chatting = true;
 				ChatbotMain.print("Hey! It sounds like you and I have a common interest! Let's talk some more!");
-			} else if (ChatbotMain.findKeyword(shoes, "sandals", 0) >= 0 || ChatbotMain.findKeyword(shoes, "sneakers", 0) >= 0) {
+			} else if (ChatbotMain.findKeyword(shoes, "footwear", 0) >= 0 || ChatbotMain.findKeyword(shoes, "sneakers", 0) >= 0) {
 				ChatbotMain.print("Tell me, what's your favorite color?");
 				response = ChatbotMain.getInput();
 				color = response;
 				chatting = false;
-				ChatbotMain.print("Great. I like " + shoes + " in " + color + " color too.");
-				ChatbotMain.print("I think that " + currentTime + " is the perfect time to wear " + color + " " + shoes + "!");
-			}
-			} else if (ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
+				ChatbotMain.print("What?! I like " + color + " " + shoes + " too!");
+				ChatbotMain.print("You know what would be perfect? If you wore " + color + " " + shoes + " on New Years Day!");
+				ChatbotMain.print("Today is " + todaysDate + ". Only " + + " days until the new year!");
+			}  
+				if (ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				chatting = true;
-				ChatbotMain.print("Oh my goodness! I love it when you say that! We are friends now.");
+				ChatbotMain.print("Oh my goodness! I love money as well! We are friends now.");
 				happiness++;
 			} else if (ChatbotMain.findKeyword(response, goodbyeWord, 0) >= 0) {
 				chatting = false;
 				ChatbotMain.print("Okay. See you later!");
 			} else {
 				chatting = true;
-				ChatbotMain.print("Huh. I don't really get you. Tell me something else. such as clothing?");
+				ChatbotMain.print("Huh. I don't really get you. Tell me something else– such as sneakers.");
 			}
 		}
 	}

@@ -19,7 +19,7 @@ public class ChatBot {
 	}
 	public void startTalking() {
 		
-		ChatbotMain.print("Hi my name is Salesbot! What is your name?");
+		ChatbotMain.print("My name is Salesbot. What's your name?");
 		userName = ChatbotMain.getInput();
 		ChatbotMain.print("Hey " + userName + "! What do you want to talk about?");
 		String response;
@@ -38,7 +38,7 @@ public class ChatBot {
 				David.startChatting(response, happiness);
 			}
 			else {
-				chatting = false;
+				chatting = true;
 				ChatbotMain.print("I'm sorry. I don't understand.");
 			}
 		}
