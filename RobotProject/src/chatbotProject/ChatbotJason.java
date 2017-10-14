@@ -9,8 +9,8 @@ public class ChatbotJason implements Topic {
 
 	
 	public ChatbotJason() {
-		String[] temp = {"no","don't","not", "dont", "i dont want"};
-		String[] temp2 = {"no" , "don't"};
+		String[] temp = {"no","don't","not","dont", "no!","i dont"};
+		String[] temp2 = {"no" , "don't", "dont"};
 		negativeWords = temp2;
 		keywords = temp;
 		goodbyeWord = "bye";
@@ -37,20 +37,21 @@ public class ChatbotJason implements Topic {
 				ChatbotMain.print("Okay. See you later!");
 			} else if(ChatbotMain.findKeyword(response, secretWord, 0) >= 0) {
 				ChatbotMain.print("Oh my goodness! You guessed my favorite thing ever. We are friends now.");	
-			}
-			else if(ChatbotMain.findKeyword(response,"yes", 0) != -1){
+			} else if(ChatbotMain.findKeyword(response, "yes", 0) != -1 ) {
 				ChatbotMain.print("That's amazing!");
+				chatting = false;
 				ChatbotMain.chatbot.startTalking();
-			} else {
+			}
+			else {
 					boolean understand = false;
 					for (int i=0; i<= negativeWords.length-1; i++ ) {
 						if(ChatbotMain.findKeyword(response, negativeWords[i], 0) != -1) {
 							convincePerson(preferredItem);
 							understand = true;
 							ChatbotMain.chatbot.startTalking();
-							return;
 						}
 					}
+					
 					if (!understand) {
 						ChatbotMain.print("Huh. I don't really get you. Tell me something else?");
 					}
@@ -101,5 +102,15 @@ public class ChatbotJason implements Topic {
 	}
 	public void flame() {
 		ChatbotMain.print("You think your cool!?!");
+		String response = ChatbotMain.getInput();
+		System.out.println(ChatbotMain.findKeyword(response, "Yes", 0));
+		System.out.println(ChatbotMain.findKeyword(response, "Yea", 0));
+		System.out.println(ChatbotMain.findKeyword(response, "Yeah", 0));
+		if (ChatbotMain.findKeyword(response, "Yea", 0) != -1 || ChatbotMain.findKeyword(response, "Yeah", 0) != -1|| ChatbotMain.findKeyword(response, "Yes", 0)  != -1) {
+			ChatbotMain.print(">:(");
+		}
+		else {
+			ChatbotMain.print("Took you long enough to realize that :)");
+		}
 	}
 }
