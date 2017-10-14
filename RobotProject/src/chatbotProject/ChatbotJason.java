@@ -103,9 +103,6 @@ public class ChatbotJason implements Topic {
 	public void flame() {
 		ChatbotMain.print("You think your cool!?!");
 		String response = ChatbotMain.getInput();
-		System.out.println(ChatbotMain.findKeyword(response, "Yes", 0));
-		System.out.println(ChatbotMain.findKeyword(response, "Yea", 0));
-		System.out.println(ChatbotMain.findKeyword(response, "Yeah", 0));
 		if (ChatbotMain.findKeyword(response, "Yea", 0) != -1 || ChatbotMain.findKeyword(response, "Yeah", 0) != -1|| ChatbotMain.findKeyword(response, "Yes", 0)  != -1) {
 			ChatbotMain.print(">:(");
 		}
